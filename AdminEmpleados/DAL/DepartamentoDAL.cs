@@ -25,5 +25,12 @@ namespace AdminEmpleados.DAL
                 "INSERT INTO Departamentos (departamento) VALUES('"+ oDepartamentosBLL .Departamento+"')"
                 );
         }
+
+        public DataSet MostrarDepartamentos()
+        {
+            SqlCommand sentencia = new SqlCommand("SELECT * FROM Departamentos");
+
+            return conexion.EjecutarSentencia(sentencia);
+        }
     }
 }

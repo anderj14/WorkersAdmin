@@ -27,13 +27,11 @@ namespace AdminEmpleados.DAL
             try
             {
                 SqlCommand Comando = new SqlCommand();
-
                 Comando.CommandText = strComando;  //"INSERT INTO Departamentos (departamento) VALUES('Diseno')"
                 Comando.Connection = this.EstablecerConexion();
                 Conexion.Open();
                 Comando.ExecuteNonQuery();
                 Conexion.Close();
-
                 return true;
             }
             catch
@@ -43,5 +41,26 @@ namespace AdminEmpleados.DAL
         }
 
         /* SELECT (Retorno datos) */
+        public DataSet EjecutarSentencia(SqlCommand sqlComando)
+        {
+            DataSet DS = new DataSet();
+            SqlDataAdapter Adaptador = new SqlDataAdapter();
+
+            try
+            {
+                SqlCommand Comando = new SqlCommand();
+                Comando = sqlComando;
+                Comando.Connection = EstablecerConexion();
+                Adaptador.SelectCommand = Comando;
+                Conexion.Open();
+                Adaptador.Fill(DS);
+                Conexion.Close();
+                return DS;
+            }
+            catch
+            {
+                return DS;
+            }
+        }
     }
 }
