@@ -19,11 +19,20 @@ namespace AdminEmpleados.DAL
             conexion = new ConexionDAL();
         }
 
-        public bool agregar(DepartamentoBLL oDepartamentosBLL)
+        public bool Agregar(DepartamentoBLL oDepartamentosBLL)
         {
             return conexion.ejecutarComandoSinRetornoDatos(
-                "INSERT INTO Departamentos (departamento) VALUES('"+ oDepartamentosBLL .Departamento+"')"
+                "INSERT INTO Departamentos (departamento) VALUES('" + oDepartamentosBLL.Departamento + "')"
                 );
+        }
+
+        public int Eliminar(DepartamentoBLL oDepartamentoBLL)
+        {
+
+            conexion.ejecutarComandoSinRetornoDatos(
+                "DELETE FROM Departamentos WHERE ID="+oDepartamentoBLL.ID
+                );
+            return 1;
         }
 
         public DataSet MostrarDepartamentos()

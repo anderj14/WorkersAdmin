@@ -29,12 +29,13 @@ namespace AdminEmpleados.PL
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // instruccion  GUI (Obtener informacion de la presentacion)
-            RecuperarInformacion();
 
             MessageBox.Show("Conectado...");        // bool
 
             // Clase DAL Departamentos.. Objeto que tiene la informacion de la GUI
-            oDepartamentosDAL.agregar(RecuperarInformacion());
+            oDepartamentosDAL.Agregar(RecuperarInformacion());
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
+
         }
 
         private DepartamentoBLL RecuperarInformacion()
@@ -55,6 +56,13 @@ namespace AdminEmpleados.PL
 
             txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
             txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            oDepartamentosDAL.Eliminar(RecuperarInformacion());
+            dgvDepartamentos.DataSource = oDepartamentosDAL.MostrarDepartamentos().Tables[0];
+
         }
     }
 }
