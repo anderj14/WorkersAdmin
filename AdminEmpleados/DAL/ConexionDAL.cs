@@ -21,11 +21,11 @@ namespace AdminEmpleados.DAL
             return this.Conexion;
         }
 
-        public bool PruebaConectar(string strComando)
+        /*Metodo INSERT, DELETE, UPDATE*/
+        public bool ejecutarComandoSinRetornoDatos(string strComando)
         {
             try
             {
-
                 SqlCommand Comando = new SqlCommand();
 
                 Comando.CommandText = strComando;  //"INSERT INTO Departamentos (departamento) VALUES('Diseno')"
@@ -41,5 +41,7 @@ namespace AdminEmpleados.DAL
                 return false;
             }
         }
+
+        /* SELECT (Retorno datos) */
     }
 }

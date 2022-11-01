@@ -25,7 +25,7 @@ namespace AdminEmpleados.PL
             // instruccion  GUI (Obtener informacion de la presentacion)
             RecuperarInformacion();
             ConexionDAL conexion = new ConexionDAL();
-            MessageBox.Show("Conectado..." + conexion.PruebaConectar("INSERT INTO Departamentos (departamento) VALUES('Diseno')"));        // bool
+            MessageBox.Show("Conectado..." + conexion.ejecutarComandoSinRetornoDatos("INSERT INTO Departamentos (departamento) VALUES('Diseno')"));        // bool
         }
 
         private void RecuperarInformacion()
