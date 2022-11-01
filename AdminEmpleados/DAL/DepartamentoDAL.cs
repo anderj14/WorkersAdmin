@@ -19,10 +19,10 @@ namespace AdminEmpleados.DAL
             conexion = new ConexionDAL();
         }
 
-        public bool agregar()
+        public bool agregar(DepartamentoBLL oDepartamentosBLL)
         {
             return conexion.ejecutarComandoSinRetornoDatos(
-                "INSERT INTO Departamentos (departamento) VALUES('Diseno')"
+                "INSERT INTO Departamentos (departamento) VALUES('"+ oDepartamentosBLL .Departamento+"')"
                 );
         }
     }

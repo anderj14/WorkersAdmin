@@ -28,21 +28,23 @@ namespace AdminEmpleados.PL
         {
             // instruccion  GUI (Obtener informacion de la presentacion)
             RecuperarInformacion();
+
             MessageBox.Show("Conectado...");        // bool
-            oDepartamentosDAL.agregar();
+
+            // Clase DAL Departamentos.. Objeto que tiene la informacion de la GUI
+            oDepartamentosDAL.agregar(RecuperarInformacion());
         }
 
-        private void RecuperarInformacion()
+        private DepartamentoBLL RecuperarInformacion()
         {
-            DepartamentoBLL oDepartamento = new DepartamentoBLL();
+            DepartamentoBLL oDepartamentoDLL = new DepartamentoBLL();
             int ID = 0;  int.TryParse(txtID.Text, out ID);
 
-            oDepartamento.ID = ID;
+            oDepartamentoDLL.ID = ID;
 
-            oDepartamento.Departamento = txtNombre.Text;
+            oDepartamentoDLL.Departamento = txtNombre.Text;
 
-            MessageBox.Show(oDepartamento.ID.ToString());
-            MessageBox.Show(oDepartamento.Departamento);
+            return oDepartamentoDLL;
         }
     }
 }
