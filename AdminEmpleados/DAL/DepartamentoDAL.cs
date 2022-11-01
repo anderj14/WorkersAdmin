@@ -26,12 +26,20 @@ namespace AdminEmpleados.DAL
                 );
         }
 
-        public int Eliminar(DepartamentoBLL oDepartamentoBLL)
+        public int Eliminar(DepartamentoBLL oDepartamentosBLL)
         {
 
             conexion.ejecutarComandoSinRetornoDatos(
-                "DELETE FROM Departamentos WHERE ID="+oDepartamentoBLL.ID
+                "DELETE FROM Departamentos WHERE ID=" + oDepartamentosBLL.ID
                 );
+            return 1;
+        }
+
+        public int Modificar(DepartamentoBLL oDepartamentosBLL)
+        {
+            conexion.ejecutarComandoSinRetornoDatos("UPDATE Departamentos" +
+                "SET departamento= '"+oDepartamentosBLL.Departamento +"' " + 
+                "WHERE ID=" + oDepartamentosBLL.ID); ;
             return 1;
         }
 
@@ -41,5 +49,7 @@ namespace AdminEmpleados.DAL
 
             return conexion.EjecutarSentencia(sentencia);
         }
+
+
     }
 }
