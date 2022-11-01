@@ -15,8 +15,12 @@ namespace AdminEmpleados.PL
 {
     public partial class frmDepartamentos : Form
     {
+
+        DepartamentoDAL oDepartamentosDAL;
+
         public frmDepartamentos()
         {
+            oDepartamentosDAL = new DepartamentoDAL();
             InitializeComponent();
         }
 
@@ -24,8 +28,8 @@ namespace AdminEmpleados.PL
         {
             // instruccion  GUI (Obtener informacion de la presentacion)
             RecuperarInformacion();
-            ConexionDAL conexion = new ConexionDAL();
-            MessageBox.Show("Conectado..." + conexion.ejecutarComandoSinRetornoDatos("INSERT INTO Departamentos (departamento) VALUES('Diseno')"));        // bool
+            MessageBox.Show("Conectado...");        // bool
+            oDepartamentosDAL.agregar();
         }
 
         private void RecuperarInformacion()
