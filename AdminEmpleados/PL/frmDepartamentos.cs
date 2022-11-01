@@ -48,5 +48,13 @@ namespace AdminEmpleados.PL
 
             return oDepartamentoDLL;
         }
+
+        private void Seleccionar(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int indice = e.RowIndex;
+
+            txtID.Text = dgvDepartamentos.Rows[indice].Cells[0].Value.ToString();
+            txtNombre.Text = dgvDepartamentos.Rows[indice].Cells[1].Value.ToString();
+        }
     }
 }

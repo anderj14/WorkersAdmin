@@ -47,6 +47,7 @@
             this.dgvDepartamentos.Name = "dgvDepartamentos";
             this.dgvDepartamentos.Size = new System.Drawing.Size(349, 250);
             this.dgvDepartamentos.TabIndex = 17;
+            this.dgvDepartamentos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Seleccionar);
             // 
             // btnCancelar
             // 
